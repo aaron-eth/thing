@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div>choose a duration</div>
-    <div>
-      <div  v-on:click="setDuration(60)">60 sec</div>
-      <div  v-on:click="setDuration(120)">120 sec</div>
-      <div  v-on:click="setDuration(180)">180 sec</div>
-      <div  v-on:click="setDuration(240)">240 sec</div>
+    <div class="typeTitle">choose a duration</div>
+    <div class="typeContainer">
+      <div class="type"  v-on:click="setDuration(60)">60 sec</div>
+      <div class="type"  v-on:click="setDuration(120)">120 sec</div>
+      <div class="type"  v-on:click="setDuration(180)">180 sec</div>
+      <div class="type"  v-on:click="setDuration(240)">240 sec</div>
     </div>
   </div>
 </template>
