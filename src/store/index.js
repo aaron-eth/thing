@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    meditationDuration: 0,
     meditationType: 0,
     meditationSound: "",
   },
