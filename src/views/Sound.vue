@@ -23,7 +23,7 @@ export default {
   methods: {
     setSound(type){
       Vuex.state.meditationSound = type;
-      router.push('/meditation')
+      router.push('/duration')
     }
   },
   created(){
