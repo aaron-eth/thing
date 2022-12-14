@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Type from '../views/Type.vue'
 import Meditation from '../views/Meditation.vue'
 import Sound from '../views/Sound.vue'
-
+import Duration from '../views/Duration.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,6 +12,7 @@ const routes = [
   {path: '/type', name: 'type', component: Type},
   {path: '/meditation', name: 'meditation', component: Meditation},
   {path: '/sound', name: 'sound', component: Sound},
+  {path: '/duration', name: 'duration', component: Duration},
 ]
 
 const router = new VueRouter({
