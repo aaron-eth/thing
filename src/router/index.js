@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Type from '../views/Type.vue'
-import Meditation from '../views/Meditation.vue'
-import Sound from '../views/Sound.vue'
-import Duration from '../views/Duration.vue'
+import Type from '../components/Type.vue'
+import Meditation from '../components/Meditation.vue'
+import Sound from '../components/Sound.vue'
+import Duration from '../components/Duration.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,5 +20,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
 
 export default router

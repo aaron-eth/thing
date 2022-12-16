@@ -1,30 +1,33 @@
 <template>
-  <div id="app">
+  <div id="type">
     <div class="typeTitle">choose a type</div>
     <div class="typeContainer">
-      <div class="type" v-on:click="setType(4)">4 sec</div>
-      <div class="type" v-on:click="setType(6)">6 sec</div>
-      <div class="type" v-on:click="setType(9)">9 sec</div>
-      <div class="type" v-on:click="setType(11)">11 sec</div>
+      <div class="type" v-on:click="goToSound(4)">4 sec</div>
+      <div class="type" v-on:click="goToSound(6)">6 sec</div>
+      <div class="type" v-on:click="goToSound(9)">9 sec</div>
+      <div class="type" v-on:click="goToSound(11)">11 sec</div>
     </div>
   </div>
 </template>
 
 <script>
-import router from '../router'
+import { mapActions, mapState } from 'vuex'
 import Vuex from '../store/index.js'
 export default {
-  data(){
-    return{
-      
-    }
+  computed: {
+    ...mapState({
+      meditationType: state => state.meditationType
+    })
   },
   methods: {
-    setType(type){
-      Vuex.state.meditationType = type;
-      router.push('/sound');
+    ...mapActions([
+      'setMeditationType'
+    ]),
+    goToSound(type) {
+      this.setMeditationType(type)
+      this.$emit('goToSound')
     }
-  },
+    },
   created() {
     document.body.style.background = "black"; 
   },

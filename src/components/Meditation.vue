@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <div :style="{animationDuration: duration + 's'}" id="mediContainer">
-      
       <div :style="{animationDuration: duration + 's'}" id="circle">
-
       </div>
       <div :style="{animationDuration: duration/2 + 's'}" id="message">
-        {{message}}
+        {{message}}<br>{{timeLeft}} s
       </div>
       <audio :src="sound" autoplay loop>
       </audio>
@@ -18,12 +16,14 @@
 <script>
 import Vuex from '../store/index.js'
 import router from '../router'
+
 export default {
   data(){
     return{
       message: "breathe in",
       duration: Vuex.state.meditationType,
       sound: Vuex.state.meditationSound + ".mp3",
+      timeLeft: Vuex.state.meditationDuration,
       }
       
   },
@@ -34,10 +34,19 @@ export default {
         }else{
           this.message = "breathe in"
         }  
+    },
+    changeDur() {
+      if (this.timeLeft === 0) {
+        // router.push('/')
+      } else {
+        this.timeLeft--;
+      }
     }
-  },
+    
+    },
+
   created(){
-    if(Vuex.state.meditationType == 0){
+    if(Vuex.state.meditationDuration == 0) {
       router.push('/type');
     }
     document.body.style.background = "black";
@@ -45,9 +54,12 @@ export default {
       this.changeMsg();
       
     }, this.duration/2*1000) // multiplied by 1000 because of seconds to miliseconds
-  },
+    setInterval(() => {
+      this.changeDur();
+    }, 1000);
+  }
+}  
   
-}
 </script>
 
 <style>
