@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "npm": "^9.2.0",
     "vue": "^2.6.10",
     "vue-aplayer": "^1.6.1",
     "vue-router": "^3.1.3",

@@ -2,10 +2,10 @@
   <div id="duration">
     <div class="typeTitle">choose a duration</div>
     <div class="typeContainer">
-      <div class="type"  v-on:click="goToMeditation(10)">10 sec</div>
-      <div class="type"  v-on:click="goToMeditation(120)">120 sec</div>
-      <div class="type"  v-on:click="goToMeditation(180)">180 sec</div>
-      <div class="type"  v-on:click="goToMeditation(240)">240 sec</div>
+      <div class="type"  @click="goToMeditation(10)">10 sec</div>
+      <div class="type"  @click="goToMeditation(120)">120 sec</div>
+      <div class="type"  @click="goToMeditation(180)">180 sec</div>
+      <div class="type"  @click="goToMeditation(240)">240 sec</div>
     </div>
   </div>
 </template>

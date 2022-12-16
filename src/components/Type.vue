@@ -2,10 +2,10 @@
   <div id="type">
     <div class="typeTitle">choose a type</div>
     <div class="typeContainer">
-      <div class="type" v-on:click="goToSound(4)">4 sec</div>
-      <div class="type" v-on:click="goToSound(6)">6 sec</div>
-      <div class="type" v-on:click="goToSound(9)">9 sec</div>
-      <div class="type" v-on:click="goToSound(11)">11 sec</div>
+      <div class="type" @click="goToSound(4)">4 sec</div>
+      <div class="type" @click="goToSound(6)">6 sec</div>
+      <div class="type" @click="goToSound(9)">9 sec</div>
+      <div class="type" @click="goToSound(11)">11 sec</div>
     </div>
   </div>
 </template>

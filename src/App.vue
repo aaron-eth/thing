@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <router-view></router-view> -->
-    <component v-bind:is="currentComponent" v-on:goToSound="goToSound" v-on:goToDuration="goToDuration" v-on:goToMeditation="goToMeditation"></component> 
+    <component :is="currentComponent" @goToSound="goToSound" @goToDuration="goToDuration" @goToMeditation="goToMeditation"></component> 
   </div>
 </template>
 
@@ -10,6 +10,7 @@ import Type from './components/Type.vue'
 import Sound from './components/Sound.vue'
 import Duration from './components/Duration.vue'
 import Meditation from './components/Meditation.vue'
+import Aplayer from './components/Aplayer.vue'
 import { mapState } from 'vuex'
 
 export default {
@@ -23,7 +24,8 @@ export default {
     Type,
     Sound,
     Duration,
-    Meditation
+    Meditation,
+    Aplayer
   },
   methods: {
     goToSound() {
@@ -40,10 +42,10 @@ export default {
 </script>
 
 <style>
-body{
+/* body{
   background-color: black;
   transition-duration: 900ms;
-}
+} */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

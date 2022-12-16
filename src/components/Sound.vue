@@ -2,10 +2,10 @@
   <div id="sound">
     <div class="typeTitle">choose a sound</div>
     <div class="typeContainer">
-      <div class="type" v-on:click="goToDuration('none')">none</div>
-      <div class="type" id="fire" v-on:click="goToDuration('fire')">fire</div>
-      <div class="type" id="water" v-on:click="goToDuration('water')">water</div>
-      <div class="type" id="music" v-on:click="goToDuration('classic')">music</div>
+      <div class="type" @click="goToDuration('none')">none</div>
+      <div class="type" id="fire" @click="goToDuration('fire')">fire</div>
+      <div class="type" id="water" @click="goToDuration('water')">water</div>
+      <div class="type" id="music" @click="goToDuration('classic')">music</div>
     </div>
   </div>
 </template>
