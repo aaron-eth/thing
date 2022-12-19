@@ -1,14 +1,6 @@
 <template>
   <div id="app">
-    <!-- <router-view></router-view> -->
     <component :is="currentComponent" @goToSound="goToSound" @goToDuration="goToDuration" @goToMeditation="goToMeditation"></component>
-    <Aplayer autoplay 
-    :music="{
-      title: 'secret base~君がくれたもの~',
-      artist: 'Silent Siren',
-      src: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.mp3',
-      pic: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.jpg'
-    }" />
   </div>
 </template>
 
@@ -17,24 +9,27 @@ import Type from './components/Type.vue'
 import Sound from './components/Sound.vue'
 import Duration from './components/Duration.vue'
 import Meditation from './components/Meditation.vue'
-import Aplayer from './components/Aplayer.vue'
+import Home from './components/Home.vue'
 import { mapState } from 'vuex'
 
 export default {
   name: 'app',
-  data() {
-    return {
-      currentComponent: 'type'
-    }
-  },
   components: {
+    Home,
     Type,
     Sound,
     Duration,
-    Meditation,
-    Aplayer
+    Meditation
+  },
+  data() {
+    return {
+      currentComponent: 'type',
+    }
   },
   methods: {
+    goToType() {
+      this.currentComponent = 'type'
+    },
     goToSound() {
       this.currentComponent = 'sound'
     },

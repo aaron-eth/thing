@@ -1,10 +1,13 @@
 <template>
   <div class="aplayer">
-    <audio :src="music.src" controls></audio>
-    <div class="info">
-      <div class="title">{{ music.title }}</div>
-      <div class="artist">{{ music.artist }}</div>
-    </div>
+    <aplayer
+        :music="{
+          title: music.title,
+          artist: music.artist,
+          src: music.title,
+          pic: music.pic
+        }"
+      />
   </div>
 </template>
 
@@ -14,28 +17,23 @@ import Aplayer from 'vue-aplayer'
 export default {
   props: {
     music: {
-      type: Object,
-      required: true
+    title: String,
+    artist: String,
+    src: String,
+    pic: String
     }
   }
 }
 </script>
 
 <style>
-.aplayer {
-  display: flex;
-  align-items: center;
-}
-
 .info {
   margin-left: 16px;
 }
-
 .title {
   font-size: 18px;
   font-weight: bold;
 }
-
 .artist {
   font-size: 14px;
   color: #666;

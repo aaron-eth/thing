@@ -1,21 +1,24 @@
 <template>
   <div id="app">
     <div :style="{animationDuration: duration + 's'}" id="mediContainer">
+      <aplayer autoplay 
+        :music="{
+          title: 2,
+          src: sound
+        }"
+      />
       <div :style="{animationDuration: duration + 's'}" id="circle">
       </div>
       <div :style="{animationDuration: duration/2 + 's'}" id="message">
         {{message}}<br>{{timeLeft}} s
       </div>
-      <!-- <audio :src="sound" autoplay loop> -->
-      <!-- </audio> -->
-      <div id="back"><router-link to="/type">back</router-link></div>
     </div>
   </div>
 </template>
 
 <script>
+import Aplayer from 'vue-aplayer'
 import Vuex from '../store/index.js'
-import router from '../router'
 
 export default {
   data(){
@@ -25,38 +28,38 @@ export default {
       sound: Vuex.state.meditationSound + ".mp3",
       timeLeft: Vuex.state.meditationDuration,
       }
-      
+  },
+  components: {
+    Aplayer
   },
   methods: {
-    changeMsg(){
-        if(this.message == "breathe in"){
-          this.message = "breathe out"
-        }else{
-          this.message = "breathe in"
-        }  
+    changeMsg() {
+    this.currentState = this.currentState === "breathe in" ? "breathe out" : "breathe in";
     },
     changeDur() {
-      if (this.timeLeft === 0) {
-        // router.push('/')
-      } else {
-        this.timeLeft--;
-      }
+    if (this.timeLeft === 0) {
+      clearInterval(this.intervalId);
+      // router.push('/')
+    } else {
+      this.timeLeft--;
     }
-    
-    },
+    }
 
-  created(){
-    if(Vuex.state.meditationDuration == 0) {
-      router.push('/type');
-    }
-    document.body.style.background = "black";
-    setInterval(()=>{
-      this.changeMsg();
-      
-    }, this.duration/2*1000) // multiplied by 1000 because of seconds to miliseconds
-    setInterval(() => {
-      this.changeDur();
-    }, 1000);
+  },
+
+  created() {
+  if (Vuex.state.meditationDuration === 0) {
+    router.push('/type');
+  }
+  document.body.style.background = "black";
+
+  this.intervalId = setInterval(() => {
+    this.changeDur();
+  }, 1000);
+
+  setInterval(() => {
+    this.changeMsg();
+  }, this.duration / 2 * 1000);
   }
 }  
   

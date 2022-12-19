@@ -6,7 +6,7 @@
       <div class="bubble" id="bubble3"></div>
       <div class="bubble" id="bubble4"></div>
       <div class="bubble" id="bubble5"></div>
-      <div id="mainTitle" v-on:click="clickedTitle()">thing</div>
+      <div id="mainTitle" @click="goToType()">thing</div>
       <div id="description">pure breathe exercise</div>
     </div>
   </div>
@@ -22,15 +22,15 @@ export default {
     }
   },
   methods: {
-    clickedTitle(){
+    goToType(){
         document.getElementById("mainContainer").style.background = "black";
         document.getElementById("mainTitle").style.color = "floralwhite";
         document.getElementById("mainTitle").style.borderColor = "floralwhite";
         document.getElementById("mainTitle").style.opacity = "0";
         setTimeout(() => {
           document.getElementById("mainTitle").style.display = "none";
-          router.push("type");
           }, 300);
+        this.$emit('goToType');
       }
   },
   created() {
