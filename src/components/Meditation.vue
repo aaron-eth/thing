@@ -6,8 +6,8 @@
       <div :style="{animationDuration: duration/2 + 's'}" id="message">
         {{message}}<br>{{timeLeft}} s
       </div>
-      <audio :src="sound" autoplay loop>
-      </audio>
+      <!-- <audio :src="sound" autoplay loop> -->
+      <!-- </audio> -->
       <div id="back"><router-link to="/type">back</router-link></div>
     </div>
   </div>
