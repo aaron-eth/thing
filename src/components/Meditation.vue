@@ -3,7 +3,7 @@
     <div :style="{animationDuration: duration + 's'}" id="mediContainer">
       <aplayer autoplay 
         :music="{
-          title: 2,
+          title: 'meditation',
           src: sound
         }"
       />
@@ -33,8 +33,12 @@ export default {
     Aplayer
   },
   methods: {
-    changeMsg() {
-    this.currentState = this.currentState === "breathe in" ? "breathe out" : "breathe in";
+    changeMsg(){
+        if(this.message == "breathe in"){
+          this.message = "breathe out"
+        }else{
+          this.message = "breathe in"
+        }  
     },
     changeDur() {
     if (this.timeLeft === 0) {
@@ -43,14 +47,11 @@ export default {
     } else {
       this.timeLeft--;
     }
-    }
 
+  }
   },
 
   created() {
-  if (Vuex.state.meditationDuration === 0) {
-    router.push('/type');
-  }
   document.body.style.background = "black";
 
   this.intervalId = setInterval(() => {
