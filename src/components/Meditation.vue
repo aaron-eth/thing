@@ -32,36 +32,30 @@ export default {
   components: {
     Aplayer
   },
-  methods: {
-    changeMsg(){
-        if(this.message == "breathe in"){
-          this.message = "breathe out"
-        }else{
-          this.message = "breathe in"
-        }  
-    },
-    changeDur() {
+ methods: {
+  changeMsg() {
+    if (this.message === 'breathe in') {
+      this.message = 'breathe out';
+    } else {
+      this.message = 'breathe in';
+    }
+    setTimeout(this.changeMsg, this.duration / 2 * 1000);
+  },
+  changeDur() {
     if (this.timeLeft === 0) {
       clearInterval(this.intervalId);
-      // router.push('/')
     } else {
       this.timeLeft--;
     }
-
+    setTimeout(this.changeDur, 1000);
   }
-  },
+},
+created() {
+  document.body.style.background = 'black';
 
-  created() {
-  document.body.style.background = "black";
-
-  this.intervalId = setInterval(() => {
-    this.changeDur();
-  }, 1000);
-
-  setInterval(() => {
-    this.changeMsg();
-  }, this.duration / 2 * 1000);
-  }
+  this.changeDur()
+  this.changeMsg();
+}
 }  
   
 </script>
